@@ -1,4 +1,5 @@
 import os
+from math import sqrt
 
 #KEEP GOING, AND PRACTICE ANY PROBLEM YOU WANT !
 """
@@ -200,34 +201,71 @@ def factorial_num (nums):
 
     return factorial_num
     
-os.system ('cls')
-print ("1. A function that returns the sum of the list")
-print ("2. A function that returns the average of the items")
-print ("3. A function that returns the highest value in the list")
-print ("4. A function that returns the factorial of the number")
-print ("5. A function that Identify the number if it's prime or not and returns the value")
+def prime_or_composite (nums):
+    if nums <= 1:
+        print ("It's not a prime number")
+        return False
+    for num in range (2, int(sqrt(nums)) + 1):
+            if nums % num == 0:
+                print ("It's not a prime number")
+                return False
+            else:
+                print ("It's a prime number")
+                return True
+    else:
+        print ("It's a prime number")
+        return True
+      
 
-choice = input("Enter the choice of the problem: ")
 
-match choice:
-    case "1":
-        os.system('cls')
-        range_list_1 = int(input("Enter the range of the list: "))
-        print (f"The sum of the list: {sum_of_list (range_list_1)}")
 
-    case "2":
-        os.system ('cls')
-        range_list_2 = int(input("Enter the range of the list: "))
-        print (f"The total average of the array: {average_of_list(range_list_2)}")
-    
-    case "3":
-        os.system ('cls')
-        range_list_3 = int(input("Enter the range of the list: "))
-        print (f"The highest number in the array: {highest_value(range_list_3)}")
 
-    case "4":
-        os.system('cls')
-        num = int(input("Enter the range of the element: "))
-        print (f"The factorial number of the list: {factorial_num(num)}")
 
-#NO PROBLEM NUMBER 5
+while True:
+    os.system ('cls')
+    print ("1. A function that returns the sum of the list")
+    print ("2. A function that returns the average of the items")
+    print ("3. A function that returns the highest value in the list")
+    print ("4. A function that returns the factorial of the number")
+    print ("5. A function that Identify the number if it's prime or not and returns the value")
+    print ("Type quit or Quit to exit the program")
+
+    choice = input("Enter the choice of the problem: ")
+    if choice == "Quit" or choice == "quit":
+        print ("The menu will exit")
+        break
+
+    match choice:
+        case "1":
+            os.system('cls')
+            range_list_1 = int(input("Enter the range of the list: "))
+            print (f"The sum of the list: {sum_of_list (range_list_1)}")
+            input ("Press enter to continue to another problem")
+
+        case "2":
+            os.system ('cls')
+            range_list_2 = int(input("Enter the range of the list: "))
+            print (f"The total average of the array: {average_of_list(range_list_2)}")
+            input ("Press enter to continue to another problem")
+
+        case "3":
+            os.system ('cls')
+            range_list_3 = int(input("Enter the range of the list: "))
+            print (f"The highest number in the array: {highest_value(range_list_3)}")
+            input ("Press enter to continue to another problem")
+
+        case "4":
+            os.system('cls')
+            num = int(input("Enter a number: "))
+            print (f"The factorial number of the list: {factorial_num(num)}")
+            input ("Press enter to continue to another problem")
+
+        case "5":
+
+            os.system ('cls')
+            num = int (input("Enter a number: "))
+            print (prime_or_composite(num))
+            input ("Press enter to continue to another problem")
+
+        case _:
+            print ("Invalid input of number")
