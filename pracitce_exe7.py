@@ -60,8 +60,11 @@ def product_name_product_price (prod_wants):
     else:
         print ("Invalid input")
 
-def order_and_quantity (prod_wants, num_of_items):
-    total_order = 0
+def order_and_quantity_discount (prod_wants, num_of_items, name_of_customer, age_of_customer, senior_id):
+    total_discount = 0
+    list_of_order = []
+    total_price = 0
+
     if prod_wants == 1:
         print ("0 - Nescafe Creamy white. ", "1 -Nescafe Original. ", "2 -Nescafe Classic")
         for num in range (0, num_of_items):
@@ -71,13 +74,28 @@ def order_and_quantity (prod_wants, num_of_items):
         for num in list_of_order:
             if 0 <= num or 0 < len(list_of_order):
                 value = list_of_items_nescafe[num]
-                print (f"The product in the index number: {num} is: {value}")
-        
-        for num in list_of_order:
-            total_price = 0
-            total_price = price_of_items_nescafe + total_price
+                item_price = price_of_items_nescafe[num]
+                total_price = total_price + item_price
+                print (f"The product in the index number: {num} is: {value} ")
+        print (f"The total price of your order is: {total_price}")
 
-        print (f"The total price: {total_price}")
+        if age_of_customer <= 59:
+            print (f"You are not able to get a 10% discount cause your age is: {age_of_customer}")
+        elif age_of_customer >= 60:
+            total_discount = total_price * 0.9
+            print (f"You are valid to get a senior discount: {total_discount}")
+        os.system ('cls')
+
+        for num in list_of_order:
+             print (f"The product in the index number: {num} is: {value} ")
+        print (f"Your name is : {name_of_customer}")
+        print (f"Your seniord id is: {senior_id}")
+        
+        if age_of_customer <= 59:
+            print (f"The total price of your order is: {total_price}")
+        else:
+            print (f"You are valid to our 10 % discount your total price of order is: {total_discount}")
+
 
     elif prod_wants == 2:
         print ("0 - Rebisco Honey butter. ", "1 - Rebisco Butter. ", "2 - Bravo")
@@ -86,9 +104,34 @@ def order_and_quantity (prod_wants, num_of_items):
             list_of_order.append (item_ordered)
 
         for num in list_of_order:
+
             if 0 <= num or 0 < len(list_of_order):
                 value = list_of_items_rebisco[num]
+                item_price = price_of_items_rebisco[num]
+                total_price = total_price + item_price
                 print (f"The product in the index number: {num} is: {value}")
+
+        print (f"The total price of your order is: {total_price}")
+
+        if age_of_customer <= 59:
+            print (f"You are not able to get a 10% discount cause your age is: {age_of_customer}")
+        elif age_of_customer >= 60:
+            total_discount = total_price * 0.9
+            print (f"You are valid to get a senior discount: {total_discount}")
+        os.system ('cls')
+
+        for num in list_of_order:
+             print (f"The product in the index number: {num} is: {value} ")
+        print (f"Your name is : {name_of_customer}")
+        print (f"Your seniord id is: {senior_id}")
+        
+        if age_of_customer <= 59:
+            print (f"The total price of your order is: {total_price}")
+        else:
+            print (f"You are valid to our 10 % discount your total price of order is: {total_discount}")
+
+
+
 
     elif prod_wants == 3:
         print ("0 - Chicken Noodles. ", "1 - Beef Noodles.", "2 - Pork Noodles.")
@@ -99,12 +142,28 @@ def order_and_quantity (prod_wants, num_of_items):
         for num in list_of_order:
             if 0 <= num or 0 <= len(list_of_order):
                 value = list_of_items_lucky_me[num]
+                item_price = price_of_items_luckyme[num]
+                total_price = total_price + item_price
                 print (f"The product in the index: {num} is: {value}")
+        print (f"The total price of your order is: {total_price}")
+        os.system ('cls')
+
+        for num in list_of_order:
+                print (f"The product in the index number: {num} is: {value} ")
+        print (f"Your name is : {name_of_customer}")
+        print (f"Your seniord id is: {senior_id}")
+            
+        if age_of_customer <= 59:
+                print (f"The total price of your order is: {total_price}")
+        else:
+                print (f"You are valid to our 10 % discount your total price of order is: {total_discount}")
+
+
+
+
+            
+
    
-    for num in list_of_order:
-        total_order = total_order + num
-    
-    print (f"The total order is: {total_order}")
 
 
 
@@ -156,8 +215,8 @@ match choice:
     case "c":
         os.system ('cls')
         print ("a. Product Name and Price")
-        print ("b. Quantity")
-        print ("c. total")
+        print ("b. Quantity, Order, and Total")
+        print ("c. Exit")
         choice_c = input("Enter your chosen product: ")
 
         match choice_c:
@@ -178,10 +237,14 @@ match choice:
                 print ("3. For Luckyme")
                 choice_of_prod = int(input("Enter your chosen producdt: "))
                 quantity_of_items = int(input("Enter the quantity of the item: "))
-                order_and_quantity(choice_of_prod, quantity_of_items)
+                name = str(input("Enter your name: "))
+                age = int (input("Enter your age: "))
+                senior_identification = int(input("Enter your card id: "))
+                order_and_quantity_discount(choice_of_prod, quantity_of_items, name, age, senior_identification)
 
             case "c":
                 os.system('cls')
+                exit
                 
     case _: 
         print ("Invalid choice")
