@@ -151,7 +151,7 @@ os.system('cls')
 #3. a function that accepts the list as an input and returns the highest value
 #4. a function that returns the factorial of the number
 #5. a function that accepts the input and return whethere the number is prime or not
-
+"""
 list_1 = []
 list_2 = []
 list_3 = []
@@ -269,3 +269,127 @@ while True:
 
         case _:
             print ("Invalid input of number")
+"""
+"""
+list_test = []
+
+def even_odd (range_of_list_1):
+    for num in range (0, range_of_list_1):
+        ele_of_list = int(input("Enter the element of list: "))
+        list_test.append (ele_of_list)
+
+    for num in range (0, range_of_list_1):
+        value = list_test[num]
+        if value %2 == 0:
+            print (f"The even number in list: {value} in the index number of: {num}")
+        else:
+            print (f"The odd number in the list: {value} in the index number of: {num}")
+
+range_of_list_1 = int(input("Enter the range of the list: "))
+even_odd(range_of_list_1)
+"""
+"""
+os.system('cls')
+responese_data = {
+    "status code" : 200,
+    "Name": [],
+    "cities":{
+        "Philippines": "Manila"
+    },   
+}
+
+
+countries_input = int(input("Enter the number of country you will input: "))
+
+for num in range (0, countries_input):
+    countries = str(input("Enter the countries: "))
+    responese_data["Name"].append (countries)
+
+print (responese_data["Name"])
+
+"""
+
+list_of_all = []
+
+def descending_list (range_of_num):
+    
+    for num in range (0, range_of_num):
+        ele_of_list = int(input("Enter a number: "))
+        list_of_all.append (ele_of_list)
+
+    for num in range (range_of_num - 1, -1, -1):
+        print (f"The descending form of array: {list_of_all[num]}")
+        
+        
+def rev_string (word):
+    string_word = list(word)
+
+    for num in range (len(string_word) -1, -1, -1): # manual descending sequence
+        print (string_word[num], end="")
+
+def occu_of_letter (word):
+    string_word = list(word.upper())
+    total_occur = 0
+    letter_finder = str(input("Enter the letter you want to find: "))
+
+    for num in range (len(string_word)):
+        if letter_finder == string_word[num]:
+            total_occur = total_occur + 1
+    print (f"The total occurance of letter {letter_finder} is : {total_occur}")
+
+def occu_of_number (range_of_list):
+    total_occur_num = 0
+
+    num_finder = int(input("Enter the number you want to find: "))
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element of the list: "))
+        list_of_all.append(ele_of_list)
+
+    for num in range (0, range_of_list):
+        if num_finder == list_of_all[num]:
+            total_occur_num = total_occur_num + 1
+    
+    print (f"The total occurance of the number: {total_occur_num}")
+
+def palindrome (word):
+    string_word = word.upper()
+    
+    if string_word == string_word [::-1]:# descending sequence
+            print ("It's a palindrome")
+    else:
+            print ("It's not a palindrome")
+
+os.system('cls')
+print ("1. Descending List")
+print ("2. Reverse string")
+print ("3. Occurance of letter")
+print ("4. Occurance of number")
+print ("5. Palindrome string")
+
+choice = int(input("Enter the number of the problem: "))
+
+match choice:
+    case 1:
+        os.system('cls')
+        range_of_num = int(input("Enter thr range of the list: "))
+        descending_list (range_of_num)
+    case 2:
+        os.system('cls')
+        word = str(input("Enter a word: "))
+        rev_string (word)
+    case 3:
+        os.system('cls')
+        word = str(input("Enter a word: "))
+        occu_of_letter (word)
+    case 4:
+        os.system('cls')
+        range_of_num = int(input("Enter the range of the list: "))
+        occu_of_number (range_of_num)
+
+    case 5:
+        os.system('cls')
+        word = str(input("Enter a word:"))
+        palindrome (word)
+    case _:
+        print ("Invalid choice")
