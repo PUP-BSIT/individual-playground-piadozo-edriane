@@ -308,7 +308,7 @@ for num in range (0, countries_input):
 print (responese_data["Name"])
 
 """
-
+""" 
 list_of_all = []
 
 def descending_list (range_of_num):
@@ -393,3 +393,23 @@ match choice:
         palindrome (word)
     case _:
         print ("Invalid choice")
+"""
+"""
+def add (*args):
+    sum = 0
+    for num in args:
+        sum += num
+    return sum
+
+print (add(1,2,3,4,5))
+"""
+
+dict = {
+ "message": ["Hello wordl!", "Edriane"],
+ "language": "english",
+ "response": "Hi there!",
+}
+for key in dict:
+  
+    if isinstance(dict[key], list):
+        print (dict[key][1])
