@@ -409,7 +409,8 @@ dict = {
  "language": "english",
  "response": "Hi there!",
 }
+dict_key = int(input("Enter the number you want to replace: "))
 for key in dict:
   
     if isinstance(dict[key], list):
-        print (dict[key][1])
+        print (dict[key][dict_key])

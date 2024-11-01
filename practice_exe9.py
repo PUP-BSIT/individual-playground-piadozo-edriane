@@ -21,12 +21,12 @@ def list_of_dict():
 #DONE
 def add_in_dict (range_of_dict):
 
-
+    os.system('cls')
     for num in range (0, range_of_dict):
         name_of_stud = str(input("Enter the name of the student: "))
         data_record["name"].append(name_of_stud)
 
-        age_of_stud = int(input("Enter the age of the student: "))
+        age_of_stud = str(input("Enter the age of the student: "))
         data_record["age"].append(age_of_stud)
 
         role_of_stud = str(input("Enter the role of the student in classroom: "))
@@ -35,44 +35,41 @@ def add_in_dict (range_of_dict):
         major_of_stud = str(input("Enter the major of the student: "))
         data_record["major"].append (major_of_stud)
 
-        gen_ave_of_stud = int(input("Enter the general ave of the student: "))
+        gen_ave_of_stud = str(input("Enter the general ave of the student: "))
         data_record["gen_ave"].append (gen_ave_of_stud)
 
 #DONE
-def update_in_dict (range_of_dict):
+def update_in_dict ():
 
-    new_info = str (input("Enter the list name you want to update: "))
-    for num in range (0, range_of_dict):
+    new_info = input("Enter the list (name, age, role, major, average) you want to update: ")
+    if new_info in data_record:
+        new_value = input (f"Enter the new value for {new_info}: ")
+        key_info = int(input("Enter the key index you want to update: "))
+        data_record[new_info][key_info] = new_value
+    else:
+        print ("No data record in dictionary")
+
     
-        if new_info == "name":
-            update_name = str(input("Enter the name you want to update: "))
-            data_record["name"].append (update_name)
-        elif new_info == "age":
-            update_age = str(input("Enter the age you want to update: "))
-            data_record["age"].append (update_age)
-        elif new_info == "role":
-            update_role = str(input("Enter the role you want to update"))
-            data_record["role_in_class"].append(update_role)
-        elif new_info == "major":
-            update_major = str(input("Enter the major you want to update: "))
-            data_record["major"].append (update_major)
-        elif new_info == "ave":
-            update_ave = str(input("Enter the avergage you want to update: "))
-            data_record["gen_ave"].append (update_ave)
-        else:
-            print ("No list in the dictionary")
+
+def delet_in_dict ():
+    list_info = input("Enter the list you want to make changes (name, age, role, major, average): ")
+
+    if list_info in data_record:
+        remove_data = input("Enter the data you want to remove: ")
+        print ("The data is remove")
+        data_record[list_info].remove (remove_data)
+        
+    else:
+        print ("No data is available please check List all")
+
 
 #not yet done
+""" 
 def search_of_dict():
 
-    search_name = int(input("Enter the number you want to find: "))
-    for key in data_record:
-        if isinstance (data_record["name"], list):
-            print (data_record["name"])
-        else:
-            print ("There's no record")
-
-
+    search_dict = input("Enter the list (name, age, role, major, average) you want to search for: ")
+    search_value = input(f"Enter the search value you want to search in {}")
+"""
 while True:
     os.system ('cls')
     print ("1. List all")
@@ -98,12 +95,18 @@ while True:
 
             range_of_dictionary = int(input("How many student information you want to add: "))
             add_in_dict (range_of_dictionary)
-            input("Press enter to")
+            input("Press enter to continue")
         case "3":
             os.system ('cls')
-            range_of_dictionary = int(input("Enter the range of the dictionary: "))
-            print (update_in_dict(range_of_dictionary))
+            print (update_in_dict())
+            input("Press enter to conitue")
+        case "4":
+            os.system ('cls')
+            print (delet_in_dict())
+            input("Press enter to continue")
 
+        case "5":
+            print ("Still processing on how can I do it")
         case _:
             os.system ('cls')
             print ("Invalid choice")
