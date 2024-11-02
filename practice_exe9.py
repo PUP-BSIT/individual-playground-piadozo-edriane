@@ -23,7 +23,7 @@ def add_in_dict (range_of_dict):
 
     os.system('cls')
     for num in range (0, range_of_dict):
-        name_of_stud = str(input("Enter the name of the student: "))
+        name_of_stud = str(input("Enter the number of the student you want to add: "))
         data_record["name"].append(name_of_stud)
 
         age_of_stud = str(input("Enter the age of the student: "))
