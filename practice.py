@@ -1,5 +1,6 @@
 import os
 from math import sqrt
+import re
 
 #KEEP GOING, AND PRACTICE ANY PROBLEM YOU WANT !
 """
@@ -415,3 +416,64 @@ for key in dict:
     if isinstance(dict[key], list):
         print (dict[key][dict_key])
 """
+
+list_of_all = []
+
+
+def mult_table (num_to_mult, range_of_loop):
+    multiple_table = 0
+
+    print ("The multiplcation table")
+    for num in range (1, range_of_loop):
+        multiple_table = num * num_to_mult
+        print (f"{num_to_mult} * {num} = {multiple_table}")
+    
+def swap_ele (range_of_list):
+    
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element of the list: "))
+        list_of_all.append(ele_of_list)
+    
+    print (f"The current list: {list_of_all}")
+  
+    swap_1 = int(input("Enter the index first index value you want to swap: "))
+    swap_2 = int(input("Enter the index value you want to swap to: "))
+    if 0 <= swap_1 < range_of_list and 0 <= swap_2 < range_of_list:
+        list_of_all[swap_1], list_of_all[swap_2] = list_of_all[swap_2], list_of_all[swap_1]
+
+    print (f"The swapped list: {list_of_all}")
+        
+def min_list(range_of_list):
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element of list: "))
+        list_of_all.append(ele_of_list)
+        min_of_list = min(list_of_all)
+
+    print (f"The minimun number in list is: {min_of_list}")
+
+print ("1. Multiplication Table: ")
+print ("2. Swap two elements in a list")
+print ("3. Least number in the list")
+print ("4. Count even and Odd")
+print ("5. Remove multiple element in list")
+
+choice = input("Enter the number of the problem: ")
+
+
+match choice:
+    case "1":
+        os.system ('cls')   
+        num_to_mult = int(input("Enter the number you want to multiply: "))
+        range_of_num = int(input("Enter the range of the number you want to multiply: "))
+        print (mult_table(num_to_mult, range_of_num))
+    case "2":
+        os.system('cls')
+        range_of_list = int(input("Enter the range of list: "))
+        print(swap_ele(range_of_list))
+    case "3":
+        os.system('cls')
+        range_of_list = int(input("Enter the range of list: "))
+        print (min_list(range_of_list))
+    case _:
+        print ("Invalid input")
