@@ -427,6 +427,8 @@ def mult_table (num_to_mult, range_of_loop):
     for num in range (1, range_of_loop):
         multiple_table = num * num_to_mult
         print (f"{num_to_mult} * {num} = {multiple_table}")
+
+    return " "
     
 def swap_ele (range_of_list):
     
@@ -442,7 +444,9 @@ def swap_ele (range_of_list):
         list_of_all[swap_1], list_of_all[swap_2] = list_of_all[swap_2], list_of_all[swap_1]
 
     print (f"The swapped list: {list_of_all}")
-        
+    
+    return " "
+ 
 def min_list(range_of_list):
 
     for num in range (0, range_of_list):
@@ -451,12 +455,53 @@ def min_list(range_of_list):
         min_of_list = min(list_of_all)
 
     print (f"The minimun number in list is: {min_of_list}")
+    
+    return " "
+
+def count_eve_odd (range_of_list):
+    even_counter = 0
+    odd_counter = 0
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element in the list: "))
+        list_of_all.append(ele_of_list)
+
+        if list_of_all[num] %2 == 0:
+            even_counter = even_counter + 1
+        else:
+            odd_counter = odd_counter + 1
+
+    print (f"The occurance of even number in the list: {even_counter}")
+    print (f"The occurance of odd number in the list: {odd_counter}")
+
+    return " "
+
+
+def consec_number (range_of_list):
+    sum_of_even = 0
+    sum_of_odd = 0
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the elements in the list: "))
+        list_of_all.append(ele_of_list)
+       
+
+    for num in range (0, range_of_list, 2):
+        if list_of_all[num]:
+         sum_of_even = sum_of_even + num
+    for num in range (0, range_of_list, 1):
+        if list_of_all [num] % 2 == 1:
+            sum_of_odd += num
+
+    print (f"The sum of even number in list: {sum_of_even}")
+    print (f"The sum of odd number in the list: {sum_of_odd}")
+    return "    "
 
 print ("1. Multiplication Table: ")
 print ("2. Swap two elements in a list")
 print ("3. Least number in the list")
 print ("4. Count even and Odd")
-print ("5. Remove multiple element in list")
+print ("5. Sum of even in list")
 
 choice = input("Enter the number of the problem: ")
 
@@ -475,5 +520,14 @@ match choice:
         os.system('cls')
         range_of_list = int(input("Enter the range of list: "))
         print (min_list(range_of_list))
+    case "4":
+        os.system('cls')
+        range_of_list = int(input("Enter the range of the list: "))
+        print(count_eve_odd(range_of_list))
+
+    case "5":
+        os.system('cls')
+        range_of_list = int(input("Enter the range of the list: "))
+        print(consec_number(range_of_list))
     case _:
         print ("Invalid input")
