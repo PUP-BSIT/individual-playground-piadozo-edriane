@@ -440,8 +440,8 @@ def swap_ele (range_of_list):
   
     swap_1 = int(input("Enter the index first index value you want to swap: "))
     swap_2 = int(input("Enter the index value you want to swap to: "))
-    if 0 <= swap_1 < range_of_list and 0 <= swap_2 < range_of_list:
-        list_of_all[swap_1], list_of_all[swap_2] = list_of_all[swap_2], list_of_all[swap_1]
+   
+    list_of_all[swap_1], list_of_all[swap_2] = list_of_all[swap_2], list_of_all[swap_1]
 
     print (f"The swapped list: {list_of_all}")
     
@@ -477,7 +477,7 @@ def count_eve_odd (range_of_list):
     return " "
 
 
-def consec_number (range_of_list):
+def sum_eve_odd (range_of_list):
     sum_of_even = 0
     sum_of_odd = 0
 
@@ -486,48 +486,52 @@ def consec_number (range_of_list):
         list_of_all.append(ele_of_list)
        
 
-    for num in range (0, range_of_list, 2):
-        if list_of_all[num]:
-         sum_of_even = sum_of_even + num
-    for num in range (0, range_of_list, 1):
-        if list_of_all [num] % 2 == 1:
-            sum_of_odd += num
+    even_numbers =[num for num in list_of_all if num %2 == 0]
+    sum_of_even = sum(even_numbers)
+
+    odd_numbers = [num for num in list_of_all if num %2 == 1]
+    sum_of_odd = sum(odd_numbers)
 
     print (f"The sum of even number in list: {sum_of_even}")
     print (f"The sum of odd number in the list: {sum_of_odd}")
     return "    "
 
-print ("1. Multiplication Table: ")
-print ("2. Swap two elements in a list")
-print ("3. Least number in the list")
-print ("4. Count even and Odd")
-print ("5. Sum of even in list")
 
-choice = input("Enter the number of the problem: ")
+while True:
+    print ("1. Multiplication Table: ")
+    print ("2. Swap two elements in a list")
+    print ("3. Least number in the list")
+    print ("4. Count even and Odd")
+    print ("5. Sum of even in list")
+    print ("Exit")
 
+    choice = input("Enter the number of the problem: ")
 
-match choice:
-    case "1":
-        os.system ('cls')   
-        num_to_mult = int(input("Enter the number you want to multiply: "))
-        range_of_num = int(input("Enter the range of the number you want to multiply: "))
-        print (mult_table(num_to_mult, range_of_num))
-    case "2":
-        os.system('cls')
-        range_of_list = int(input("Enter the range of list: "))
-        print(swap_ele(range_of_list))
-    case "3":
-        os.system('cls')
-        range_of_list = int(input("Enter the range of list: "))
-        print (min_list(range_of_list))
-    case "4":
-        os.system('cls')
-        range_of_list = int(input("Enter the range of the list: "))
-        print(count_eve_odd(range_of_list))
+    if choice == "Exit" or choice == "exit":
+        break
 
-    case "5":
-        os.system('cls')
-        range_of_list = int(input("Enter the range of the list: "))
-        print(consec_number(range_of_list))
-    case _:
-        print ("Invalid input")
+    match choice:
+        case "1":
+            os.system ('cls')   
+            num_to_mult = int(input("Enter the number you want to multiply: "))
+            range_of_num = int(input("Enter the range of the number you want to multiply: "))
+            print (mult_table(num_to_mult, range_of_num))
+        case "2":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of list: "))
+            print(swap_ele(range_of_list))
+        case "3":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of list: "))
+            print (min_list(range_of_list))
+        case "4":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print(count_eve_odd(range_of_list))
+
+        case "5":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print(sum_eve_odd(range_of_list))
+        case _:
+            print ("Invalid input")
