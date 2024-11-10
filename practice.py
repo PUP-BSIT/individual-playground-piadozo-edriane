@@ -1,6 +1,7 @@
 import os
 from math import sqrt
 import re
+import operator
 
 #KEEP GOING, AND PRACTICE ANY PROBLEM YOU WANT !
 """
@@ -417,6 +418,7 @@ for key in dict:
         print (dict[key][dict_key])
 """
 
+""" 
 list_of_all = []
 
 
@@ -535,3 +537,113 @@ while True:
             print(sum_eve_odd(range_of_list))
         case _:
             print ("Invalid input")
+"""
+""" 
+def add(*args):
+    sum = 0
+    for n in args:
+        sum += n
+    return sum
+
+print(add(1, 2, 3, 4, 5))
+print(add(7, 4, 3))
+print(add(1, 3, 4, 5))
+"""
+""" 
+def calculate(**kwargs):
+    print(kwargs)
+
+calculate(num_1=3, num_2=5, operator="+")
+
+"""
+""" 
+def calculate(**kwargs):
+    for key, value in kwargs.items():
+        print(f"key={key}, value={value}")
+
+calculate(num_1=3, num_2=5, operator="+")
+"""
+
+age_of_people = {
+        "John" :0,
+        "Edriane" :0,
+        "Lish":0,
+        "Doe":0,
+    }
+
+reverse_dict = {
+    "a" : 0,
+    "b" : 0,
+    "c" : 0,
+    "d" : 0
+}
+
+dict_list = {
+    "a" : 0,
+    "b" : 0,
+    "c" : 0,
+    "d" : 0
+}
+
+
+
+def max_age_of_people ():
+
+    highest_age = max(age_of_people.values())
+
+    for name, age in age_of_people.items():
+
+        if age == highest_age:
+            print (f"The highest age is: {name} with the age of {age}")
+
+    return " "
+
+def reverse():
+
+
+    for letter in reverse_dict:
+        print (f"{reverse_dict [letter]} : {letter}" )
+        
+    return " "
+
+def dictionary_list ():
+
+    convert = list(dict_list.items())
+
+    return convert
+
+print ("1. First problem")
+print ("2. Second problem")
+print ("3. Third problem")
+
+choice = input ("Enter your choice in the problem: ")
+
+match choice:
+
+    case "1":
+        os.system('cls')
+        age_of_people["John"] = int(input("Enter the age for John: "))
+        age_of_people["Lish"] = int (input("Enter the age for lish: "))
+        age_of_people["Doe"] = int (input("Enter the age for Doe: "))
+        age_of_people["Edriane"] = int (input("Enter the age for Edriane: "))
+
+        print (max_age_of_people())
+    
+    case "2":
+        os.system('cls')
+        reverse_dict["a"] = int (input("Enter the first value: "))
+        reverse_dict["b"] = int (input("Enter the second value: "))
+        reverse_dict["c"] = int(input("Enter the third value: "))
+        reverse_dict["d"] = int(input("Enter the fourth value: "))
+
+        print (reverse())
+    case "3":
+        os.system('cls')
+        dict_list["a"] = int(input("Enter the value for a: "))
+        dict_list["b"] = int(input("Enter the value for b: "))
+        dict_list["c"] = int(input("Enter the value for c: "))
+        dict_list["d"] = int(input("Enter the value for d: "))
+
+        print (dictionary_list())
+    case _:
+        print ("Choice is invalid")

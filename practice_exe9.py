@@ -16,14 +16,14 @@ data_record = {
 def list_of_dict():
 
     for key in data_record:
-        print (data_record[key])
+        print (f" {key} : {data_record[key]}")
 
 #DONE
 def add_in_dict (range_of_dict):
 
     os.system('cls')
     for num in range (0, range_of_dict):
-        name_of_stud = str(input("Enter the number of the student you want to add: "))
+        name_of_stud = str(input("Enter the number of the name you want to add: "))
         data_record["name"].append(name_of_stud)
 
         age_of_stud = str(input("Enter the age of the student: "))
