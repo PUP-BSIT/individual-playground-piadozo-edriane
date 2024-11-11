@@ -563,7 +563,7 @@ def calculate(**kwargs):
 
 calculate(num_1=3, num_2=5, operator="+")
 """
-
+""" 
 age_of_people = {
         "John" :0,
         "Edriane" :0,
@@ -647,3 +647,137 @@ match choice:
         print (dictionary_list())
     case _:
         print ("Choice is invalid")
+"""
+
+
+sum_of_dict = {
+    "sum": []
+}
+
+min_of_dict = {
+    "min_num": []
+}
+
+even_of_dict = {
+    "only_even": []
+}
+
+odd_of_dict = {
+    "only_odd": []
+}
+
+occure_of_dict ={
+    "find_num": []
+}
+def sum_of_num_list (range_of_list):
+
+    for num in range (0, range_of_list):
+        ele_of_list = int (input("Enter the element inside the key: "))
+        sum_of_dict["sum"].append(ele_of_list)
+
+    for num in sum_of_dict.items():
+        total_sum = sum(sum_of_dict["sum"])
+
+    print (f"The total sum of the list inside the dictionary: {total_sum}")
+
+    return " "
+
+def min_of_num_list (range_of_list):
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element inside the key: "))
+        min_of_dict["min_num"].append(ele_of_list)
+
+    min_number_inside = min(min_of_dict["min_num"])
+
+
+    print (f"The minimum number inside the key is: {min_number_inside}")
+    
+    return " "
+
+def eve_of_list (range_of_list):
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element inside the list: "))
+        even_of_dict["only_even"].append(ele_of_list)
+
+
+    for num in even_of_dict["only_even"]:
+        if num %2 == 0:
+            print (f"the even number inside the list of {even_of_dict['only_even']}: {num}") 
+
+    return " "
+
+def odd_of_list (range_of_list):
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element in the keys: "))
+        odd_of_dict["only_odd"].append(ele_of_list)
+
+    for num in odd_of_dict["only_odd"]:
+        if num %2 == 1:
+            print (f"The odd number inside the list of {odd_of_dict['only_odd']}: {num}")
+    
+    return " "
+
+def occur_of_list (range_of_list):
+    count_occur = 0
+    look_num = int(input("Enter the number you are looking: "))
+
+    for num in range (0, range_of_list):
+        ele_of_list = int(input("Enter the element of the keys: "))
+        occure_of_dict["find_num"].append(ele_of_list)
+
+    for num in occure_of_dict["find_num"]:
+        
+        if num == look_num:
+            count_occur = count_occur + 1
+
+    print (f"The occurance of the number: {count_occur}")
+
+    return " "
+
+while True:
+    os.system('cls')
+    print ("1. Sum of list in dictionary")
+    print ("2. Min number of list in dicitionary")
+    print ("3. Even number of list in dicitionary")
+    print ("4. Odd number of list in dictionary")
+    print ("5. Occurance of the number of list in dictionary")
+    print ("6. Exit")
+
+    choice = input("Enter the choice of problem: ")
+
+    if choice == "6":
+        break
+
+    match choice:
+        case "1":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print(sum_of_num_list(range_of_list))
+            input("Press enter to continue")
+
+        case "2":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print(min_of_num_list(range_of_list))
+            input("Press enter to continue")
+        case "3":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print (eve_of_list(range_of_list))
+            input("Press enter to continue")
+
+        case "4":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print (odd_of_list(range_of_list))
+            input("Press enter to continue")
+        case "5":
+            os.system('cls')
+            range_of_list = int(input("Enter the range of the list: "))
+            print (occur_of_list(range_of_list))
+            input("Press enter to continue")
+        case _:
+            print ("Invalid choice")
