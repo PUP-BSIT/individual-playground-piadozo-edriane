@@ -748,7 +748,7 @@ while True:
 
     choice = input("Enter the choice of problem: ")
 
-    if choice == "6":
+    if choice == "Exit" or choice == "exit":
         break
 
     match choice:
@@ -781,3 +781,4 @@ while True:
             input("Press enter to continue")
         case _:
             print ("Invalid choice")
+            
