@@ -649,7 +649,7 @@ match choice:
         print ("Choice is invalid")
 """
 
-
+""" 
 sum_of_dict = {
     "sum": []
 }
@@ -781,4 +781,232 @@ while True:
             input("Press enter to continue")
         case _:
             print ("Invalid choice")
-            
+"""
+
+""" 
+sum_dict = {
+    "number_1": 0,
+    "number_2": 0,
+    "number_3": 0,
+    "number_4": 0,
+    "number_5": 0,
+
+}
+
+even_dict = {
+    "number_1": 0,
+    "number_2": 0,
+    "number_3": 0,
+    "number_4": 0,
+    "number_5": 0,
+
+}
+
+factor_dict = {
+    "number_1": 0,
+    "number_2": 0,
+    "number_3": 0,
+    "number_4": 0,
+    "number_5": 0,
+
+}
+
+def sum_key ():
+    total_sum = 0
+
+    if 0 in sum_dict.values():
+            print ("Theres a key value 0")
+            return " " 
+    else:
+        total_sum = sum(sum_dict.values())
+        print (f"The total sum of key: {total_sum}")
+
+    return " "
+
+def even_key ():
+     
+    
+    even_numbers = {num: value for num, value in even_dict.items() if value %2 == 0}
+    
+    print (f"The even numbers inside the dictionary: {even_numbers}")
+
+    return " "
+
+def factor_key ():
+    total_factor = 1
+
+    for key, num in factor_dict.items():
+        total_factor = num * total_factor
+    
+    print (f"The total factor of the number is: {total_factor}")
+
+    return " "
+os.system('cls')
+print ("1.Sum of key")
+print ("2. Even or odd in key")
+print ("3. Factorial of key")
+
+choice = input("Enter your choice of problem: ")
+
+match choice:
+    case "1":
+        os.system('cls')
+        sum_dict["number_1"] = int(input("Enter a number: "))
+        sum_dict["number_2"] = int(input("Enter a number: "))
+        sum_dict["number_3"] = int(input("Enter a number: "))
+        sum_dict["number_4"] = int (input("Enter a number: "))
+        sum_dict["number_5"] = int (input("Enter a number: "))
+
+        print (sum_key())
+
+    case "2":
+        os.system('cls')
+        even_dict["number_1"] = int(input("Enter a number: "))
+        even_dict["number_2"] = int(input("Enter a number: "))
+        even_dict["number_3"] = int(input("Enter a number: "))
+        even_dict["number_4"] = int (input("Enter a number: "))
+        even_dict["number_5"] = int (input("Enter a number: "))
+     
+        print (even_key())
+
+    case "3": 
+        os.system('cls')
+        factor_dict["number_1"] = int(input("Enter a number: "))
+        factor_dict["number_2"] = int(input("Enter a number: "))
+        factor_dict["number_3"] = int(input("Enter a number: "))
+        factor_dict["number_4"] = int (input("Enter a number: "))
+        factor_dict["number_5"] = int (input("Enter a number: "))
+        print (factor_key())
+    case _:
+        print ("Choice invalid")
+"""
+""" 
+name_dict = {
+
+}
+
+for num in range (5):
+    name = input (f"Enter your name {num + 1}: ")
+    name_dict[f"name_{num + 1 }"] = name
+
+
+print (name_dict)
+
+"""
+
+odd_dict = {
+    "number":0, 
+}
+
+even_dict = {
+    "number": 0,
+}
+
+occur_dict = {
+    "number": 0,
+}
+
+rename_dict = {
+
+    "example_1": 0,
+    "example_2": 0,
+}
+
+
+def odd_function (range_count):
+    sum_of_dict = 0
+    for num in range (range_count):
+        odd_dict[f"number {num + 1}"] = int(input("Enter the number in key: "))
+
+
+    sum_dict =  sum(value for value in odd_dict.values() if value %2 == 1 )
+
+    print (f"The sum of the odd number: {sum_dict}")
+    return " "
+
+def even_function (range_count):
+    sum_of_even_dict = 0
+    for num in range (range_count):
+        even_dict[f"number {num + 1}"] = int(input("Enter the number in key: " ))
+
+    sum_even_dict = sum(value for value in even_dict.values() if value %2 == 0)
+    print (f"The sum of even numbers: {sum_even_dict}")
+
+    return " "
+
+def occur_function (range_count):
+    total_occur = 0
+    for num in range (range_count):
+        odd_dict[f"number {num + 1}"] = int (input("Enter the element in key: "))
+    num_search = int(input("Enter the number you want to find in the dictionary: "))
+
+    for key, value in odd_dict.items():
+
+        if value == num_search:
+            total_occur = total_occur + 1
+
+    print (f"The total occurance of the number is: {total_occur}")
+
+    return " "
+
+def rename ():
+    print ("Follow the format name you want to rename")
+    input_name = input("Enter the new name for the key (example_1 or example_2:) ")
+    
+    if input_name in rename_dict:
+        new_name = input(f"Enter the new value for {input_name}: ")
+        rename_dict[new_name] = rename_dict.pop(input_name)
+    
+    print (rename_dict)
+
+    return " " 
+
+def list_to_dict ():
+    key_list = ["Edriane", "Alicia", "Whitey", "Nigs"]
+    value_list = ["1", "2", "3", "4"]
+    res_dict = dict()
+    for num in range (len(key_list)):
+        res_dict.update({key_list[num]: value_list[num]})
+
+    print (res_dict)
+
+    return " "
+
+while True:
+    os.system('cls')
+    print ("1. Sum of odd in dictionary")
+    print ("2. Sum of even in dictionary")
+    print ("3. Occurance of number in dictionary")
+    print ("4. Rename key of dictionary")
+    print ("5. Convert a list into a dictionary")
+    print ("Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == "exit" or choice == "Exit":
+        break
+    match choice:
+        case "1":
+            os.system('cls')
+            range_of_function = int (input("Enter the range of the function: "))
+            odd_function(range_of_function)
+            input("Press enter to continue")
+        case "2":
+            os.system ('cls')
+            range_of_function = int(input("Enter the range of function: "))
+            even_function(range_of_function)
+            input("Press enter to continue")
+        case "3":
+            os.system('cls')
+            range_of_function = int(input("Enter the range of function: "))
+            occur_function(range_of_function)
+            input("Press enter to continue")
+        case "4":
+            os.system('cls')
+            print (rename())
+            input("Press enter to continue")
+        case "5":
+            os.system('cls')
+            print (list_to_dict())
+            input("Press enter to continue")
+        case _:
+            print ("Invalid choice")
