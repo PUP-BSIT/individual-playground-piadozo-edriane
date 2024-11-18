@@ -893,7 +893,7 @@ for num in range (5):
 print (name_dict)
 
 """
-
+""" 
 odd_dict = {
     "number":0, 
 }
@@ -1007,6 +1007,140 @@ while True:
         case "5":
             os.system('cls')
             print (list_to_dict())
+            input("Press enter to continue")
+        case _:
+            print ("Invalid choice")
+"""
+
+
+my_sibling_dict = {
+    "Brother" : {
+        "name" : "Eduard",
+        "age"  : 28,
+        "job"   : "Graphics motion designer"
+    
+    },
+
+    "Sister" : {
+        "name" : "Leiyan",
+        "age"  : 23,
+        "job"  : "Sk kagawad"
+    }
+
+}
+
+my_parent_dict = {
+    "Mother": { 
+        "name" : "Lielani",
+        "age" : 42,
+        "job" : "Caddy"
+    },
+
+    "Father":{
+        "name" : "Eduardo",
+        "age" : 42,
+        "job" : "Caddy"
+    }
+
+}
+
+even_dict = {
+    "number": 0,
+        
+}
+def merge_dict ():
+
+    my_family_dict = {
+        **my_sibling_dict, **my_parent_dict
+    }
+
+    print (my_family_dict)
+
+    return " "
+
+def search_in_dict (search_value):
+    
+    if search_value in my_sibling_dict:
+     print ("Follow the format, (name, age, job)")
+     find_key = input(f"Enter you want to know in my: ")
+     
+     value = my_sibling_dict[search_value][find_key]
+     print (f"Data you search is: {value}")
+    
+    return " "
+
+def min_age_dict_siblings ():
+    min_value = min(
+        sub_dict["age"]
+        for sub_dict in my_sibling_dict.values()
+
+    )
+
+    print (f"The minimun age of my sibling is: {min_value}")
+    return " "
+
+def rename_key_parent (value_key):
+    
+    if value_key in my_parent_dict:
+        new_name = input(f"Enter the new value for {value_key}: ")
+        my_parent_dict[new_name] = my_parent_dict.pop(value_key)
+
+    print (my_parent_dict)
+
+    return " "
+
+def even_key (range_of_key):
+
+    for num in range (range_of_key):
+        even_dict[f"number {num + 1}"] = int (input("Enter the number inside the key: "))
+
+    for value in even_dict.values():
+        if value == 0:
+            print(" ")
+        elif value %2 == 0:
+            print (f"{value} is a even number")
+        
+    return " "
+
+while True:
+    os.system('cls')
+    print ("1. Merge to dictionaries into one")
+    print ("2. Check the value if it's exist in dictionary")
+    print ("3. Get the key min value")
+    print ("4. Change the value of key in a nested dictionary")
+    print ("5. Get the even value in key")
+    print ("Exit")
+
+    choice = input("Enter your choice of prob: ")
+
+    if choice == "Exit" or choice == "exit":
+        break
+
+    match choice:
+        case "1":
+            os.system('cls')
+            print (merge_dict())
+            input("Press enter to continue")
+        case "2":
+            os.system('cls')
+            print ("Follow the format, (Brother, Sister)")
+            search_input = str(input("Enter the which value you want to search in my siblings: "))
+            search_in_dict(search_input)
+            input("Press enter to continue")
+        case "3":
+            os.system('cls')
+            print (min_age_dict_siblings())
+            input("Press enter to continue")
+        case "4":
+            os.system('cls')
+            print ("Follow the format, (Mother, Father)")
+            key_info = input("Enter the new name for (Mother, Father): ")
+            print (rename_key_parent(key_info))
+            input("Press enter to continue")
+        case "5":
+            os.system('cls')
+            range_of_key = int (input("Enter the range of the number: "))
+            print (even_key(range_of_key))
             input("Press enter to continue")
         case _:
             print ("Invalid choice")
