@@ -1012,7 +1012,7 @@ while True:
             print ("Invalid choice")
 """
 
-
+""" 
 my_sibling_dict = {
     "Brother" : {
         "name" : "Eduard",
@@ -1144,3 +1144,49 @@ while True:
             input("Press enter to continue")
         case _:
             print ("Invalid choice")
+"""
+""" 
+my_nums = {
+    "number": 0,
+    
+}
+
+def odd_sum ():
+    total_sum = 0
+    counter = 1
+    while True:
+        value = int(input("Enter the number 0 to stop: "))
+        if value == 0:
+            break
+
+        my_nums[f"number {counter}"] = value
+        counter = counter + 1
+
+    total_sum = sum(my_nums.values())
+
+    print (f"The total sum: {total_sum}")
+
+    return " "
+
+
+odd_sum()
+"""
+""" 
+def calculate_average (numbers):
+    total = sum (numbers)
+    average = total / len (numbers)
+
+    return average
+
+
+numbers = []
+user_input = input("Enter a number: ")
+
+while user_input.isnumeric():
+    numbers.append(int(user_input))
+    user_input = input("Enter a number: ")
+
+print ("Average: ", calculate_average(numbers))
+"""
+import random
+
