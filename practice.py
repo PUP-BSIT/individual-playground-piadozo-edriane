@@ -1188,5 +1188,4 @@ while user_input.isnumeric():
 
 print ("Average: ", calculate_average(numbers))
 """
-import random
 

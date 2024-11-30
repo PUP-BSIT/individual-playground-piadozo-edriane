@@ -114,24 +114,64 @@ def baccarat_card_game (input_balance):
     else:
         print ("Not enough balance")
 
-os.system('cls')
-print ("1. Slot game")
-print ("2. Baccarat game")
-print ("3. Guess the number")
-print ("4. Sum = 9")
 
-choice = str(input("Enter your choice of game: "))
+def guest_the_num ():
+    input_balance = int(input("Top up a credit: "))
 
-match choice:
-    case "1":
-        os.system('cls')
-        print ("Slot game")
-        balanace_player = int(input("Top up a credit: "))
-        slot_game(balanace_player)
-    case "2":
-        os.system("cls")
-        print ("Baccarat game")
-        balanace_player = int(input("Top up a credit: "))
-        baccarat_card_game(balanace_player)
-    case _:
-        print ("Invalid choice")
+    random_number = random.randint(1, 9)
+
+    if input_balance > 0:
+        input_guest = int(input("Enter a guessing number: "))
+        print (f"Your guess number is: {input_guest}")
+        input("Press enter to see the if your guest is correct")
+        print (f"The random number is: {random_number}")
+
+        if input_guest == random_number:
+            input_balance = input_balance + input_balance
+            print (f"Your guest is the right number: {random_number}")
+            print (f"Your current balance is: {input_balance}")
+        elif input_guest != random_number:
+            input_balance = input_balance - input_balance
+            print (f"Your guest is the wrong number: {random_number}")
+            print (f"Your current balance is: {input_balance}")
+        else:
+            input_balance = input_balance = input_balance
+            print (f"Your guest number is: {input_guest}")
+            print (f"The random number is: {random_number}")
+            print ("It's a draw")
+    else:
+        print ("You have no enough credits")
+        pass
+
+while True:
+    os.system('cls')
+    print ("1. Slot game")
+    print ("2. Baccarat game")
+    print ("3. Guess the number")
+    print ("Exit")
+
+    choice = str(input("Enter your choice of game: "))
+
+    if choice == "Exit" or choice == "exit":
+        break
+
+    match choice:
+        case "1":
+            os.system('cls')
+            print ("Slot game")
+            balanace_player = int(input("Top up a credit: "))
+            slot_game(balanace_player)
+            input("Press enter to continue")
+        case "2":
+            os.system("cls")
+            print ("Baccarat game")
+            balanace_player = int(input("Top up a credit: "))
+            baccarat_card_game(balanace_player)
+            input("Press enter to continue")
+        case "3":
+            os.system('cls')
+            print ("Guess the number from 1 - 9")
+            guest_the_num()
+            input("Press enter to continue")
+        case _:
+            print ("Invalid choice")
