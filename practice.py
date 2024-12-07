@@ -1188,4 +1188,82 @@ while user_input.isnumeric():
 
 print ("Average: ", calculate_average(numbers))
 """
+dict_word ={}
+def occur_of_letter (input_word):
+    for num in input_word:
+        if num in dict_word:
+            dict_word[num] += 1
+        else:
+            dict_word [num] = 1
 
+    print (dict_word)
+
+    return " "
+
+def letter_finder (input_word):
+    occurance_of_letter = 0
+    search_letter = str(input("Enter a word you want to find: "))
+
+    for num in input_word:
+        if search_letter == num:
+            occurance_of_letter += 1 
+
+        else:
+            occurance_of_letter = 1
+    
+    print (f"The occurance of the letter {search_letter} is: {occurance_of_letter}")
+
+    return " "
+
+ave_dict = {
+    "nums": 0,
+}
+
+def dict_ave (range_of_dict):
+    total_sum = 0
+    for num in range (1, range_of_dict + 1):
+        number = int(input("Enter a number inside the dictionary: "))
+        ave_dict[f"nums{num}"] = number
+        
+   
+    for num in ave_dict.values():
+        total_sum = num + total_sum
+
+    length_of_dict = len(ave_dict)
+
+    total_ave = total_sum / length_of_dict
+    
+    print (f"The total average of the list: {total_ave: }")
+
+
+
+
+print ("1. Occurance of the letter in a word")
+print ("2. Occurance of the inputted letter in a word")
+print ("3 . Average of a dict")
+choice = input("Enter your choice of problem: ")
+
+match choice:
+    case "1":
+        os.system("cls")
+        word_input = str(input("Enter a word: "))
+        occur_of_letter(word_input)
+    case "2":
+        os.system('cls')
+        word_input = str(input("Enter a word: "))
+        letter_finder(word_input)
+    case "3":
+        os.system('cls')
+        range_of_loop = int (input("Enter the range of the loop: "))
+        dict_ave(range_of_loop)
+    case _:
+        print ("Invalid of choice")
+
+
+def format_name(f_name, l_name):
+  """Take a first and last name and format it to title case."""
+  if f_name == "" or l_name == "":
+      return "You didn't provide valid inputs."
+  formatted_f_name = f_name.title()
+  formatted_l_name = l_name.title()
+  return f"{formatted_f_name} {formatted_l_name}"
